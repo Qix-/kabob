@@ -10,18 +10,21 @@ def _kabob_entry(vals):
 
 
 class Kabob(object):
-    def __init__(self, fn):
-        self.__fn = fn
+    def __init__(self, *fns):
+        self.__fns = fns
 
-    def __step(self, fn):
+    def __step(self, step):
         def wrapper(vals):
-            for x in self.__fn(vals):
-                for y in fn(x):
-                    yield y
+            for fn in self.__fns:
+                for x in fn(vals):
+                    for y in step(x):
+                        yield y
         return wrapper
 
     def __call__(self, vals):
-        return (x for x in self.__fn(vals))
+        for fn in self.__fns:
+            for x in fn(vals):
+                yield x
 
     def __or__(self, receiver):
         if not isinstance(receiver, Kabob):
@@ -65,3 +68,6 @@ class Kabob(object):
 class KabobWand(Kabob):
     def __init__(self):
         super().__init__(_kabob_entry)
+
+    def __call__(self, *args):
+        return Kabob(*args)
