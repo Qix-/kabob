@@ -1,4 +1,4 @@
-![](logo.svg)
+![](https://rawgit.com/bitlang/kabob/master/logo.svg)
 ---
 
 # Kabob
