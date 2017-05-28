@@ -1,4 +1,7 @@
-![](https://rawgit.com/bitlang/kabob/master/logo.svg)
+<p align="center">
+  <img src="https://rawgit.com/bitlang/kabob/master/logo.svg" />
+</p>
+
 ---
 
 # Kabob
