@@ -67,7 +67,7 @@ class Kabob(object):
 
 class KabobWand(Kabob):
     def __init__(self):
-        super().__init__(_kabob_entry)
+        super(KabobWand, self).__init__(_kabob_entry)
 
     def __call__(self, *args):
         return Kabob(*args)
